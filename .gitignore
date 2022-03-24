@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs
+/src/DSAndAlgo/.vs/DSAndAlgo
+/src/DSAndAlgo/BasicDS/obj
+/src/DSAndAlgo/BasicDS/bin/Debug/net5.0
