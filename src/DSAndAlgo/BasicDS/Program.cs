@@ -7,7 +7,7 @@ namespace BasicDS
     {
         static void Main(string[] args)
         {
-            //SamplesRelatedToTrie();
+            SamplesRelatedToTrie();
         }
 
         public static void SamplesRelatedToTrie()
@@ -21,9 +21,9 @@ namespace BasicDS
             trie.Insert("string");
             trie.Insert("strike");
 
-            Console.WriteLine($"Search if Strawberry exists in trie: {(trie.Search("striver") ? true : false)}");
+            Console.WriteLine($"Search if Strawberry exists in trie: {(trie.Search("strawberry") ? true : false)}");
             Console.WriteLine($"Search if Strike exists in trie: {(trie.Search("strike") ? true : false)}");
-            Console.WriteLine($"Search if Stri starts with in trie: {(trie.StartsWith("strawberry") ? true : false)}");
+            Console.WriteLine($"Search if Stri starts with in trie: {(trie.StartsWith("stri") ? true : false)}");
         }
     }
 }
