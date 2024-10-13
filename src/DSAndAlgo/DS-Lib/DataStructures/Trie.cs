@@ -1,37 +1,6 @@
 ﻿namespace DSLib.DataStructures
 {
-    public class Node
-    {
-        Node[] links = new Node[26];
-        bool flag = false;
-
-        public bool ContainsKey(char ch)
-        {
-            return links[ch - 'a'] != null;
-        }
-
-        public void Put(char ch, Node node)
-        {
-            links[ch - 'a'] = node;
-        }
-
-        public Node Get(char ch)
-        {
-            return links[ch - 'a'];
-        }
-
-        public void SetEnd()
-        {
-            flag = true;
-        }
-
-        public bool IsEnd()
-        {
-            return flag;
-        }
-    }
-
-    public interface ITrie
+    public interface ITrieI
     {
         public void Insert(string word);
         public bool Search(string word);
@@ -39,23 +8,54 @@
     }
 
 
-    public class Trie : ITrie
+    public class TrieI : ITrieI
     {
-        private Node _root;
-
-        public Trie()
+        public class NodeI
         {
-            _root = new Node();
+            NodeI[] links = new NodeI[26];
+            bool flag = false;
+
+            public bool ContainsKey(char ch)
+            {
+                return links[ch - 'a'] != null;
+            }
+
+            public void Put(char ch, NodeI node)
+            {
+                links[ch - 'a'] = node;
+            }
+
+            public NodeI Get(char ch)
+            {
+                return links[ch - 'a'];
+            }
+
+            public void SetEnd()
+            {
+                flag = true;
+            }
+
+            public bool IsEnd()
+            {
+                return flag;
+            }
+        }
+
+        private NodeI _root;
+
+        public TrieI()
+        {
+            _root = new NodeI();
         }
 
         public void Insert(string word)
         {
-            Node node = _root;
+            NodeI node = _root;
 
-            for(int i =0; i<word.Length; i++)
+            for (int i = 0; i < word.Length; i++)
             {
                 if (!node.ContainsKey(word[i]))
-                    node.Put(word[i], new Node());
+                    node.Put(word[i], new NodeI());
 
                 node = node.Get(word[i]);
             }
@@ -65,9 +65,9 @@
 
         public bool Search(string word)
         {
-            Node node = _root;
+            NodeI node = _root;
 
-            for(int i =0; i<word.Length; i++)
+            for (int i = 0; i < word.Length; i++)
             {
                 if (!node.ContainsKey(word[i]))
                     return false;
@@ -79,9 +79,9 @@
 
         public bool StartsWith(string prefix)
         {
-            Node node = _root;
+            NodeI node = _root;
 
-            for(int i =0; i< prefix.Length; i++)
+            for (int i = 0; i < prefix.Length; i++)
             {
                 if (!node.ContainsKey(prefix[i]))
                     return false;

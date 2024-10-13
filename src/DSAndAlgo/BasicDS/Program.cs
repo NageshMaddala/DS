@@ -7,12 +7,12 @@ namespace BasicDS
     {
         static void Main(string[] args)
         {
-            SamplesRelatedToTrie();
+            //SamplesRelatedToTrie();
         }
 
         public static void SamplesRelatedToTrie()
         {
-            Trie trie = new Trie();
+            TrieI trie = new TrieI();
 
             Console.WriteLine("Inserting words: Striver, Striving, String and Strike");
 
