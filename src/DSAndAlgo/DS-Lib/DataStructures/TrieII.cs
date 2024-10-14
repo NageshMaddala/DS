@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DS_Lib
+namespace DS_Lib.DataStructures
 {
     public class NodeII
     {
@@ -84,7 +84,7 @@ namespace DS_Lib
         {
             NodeII node = _root;
 
-            for(int i =0; i< word.Length; i++)
+            for (int i = 0; i < word.Length; i++)
             {
                 if (!node.ContainsKey(word[i]))
                     return;
@@ -99,7 +99,7 @@ namespace DS_Lib
         {
             NodeII node = _root;
 
-            for(int i=0; i< word.Length; i++)
+            for (int i = 0; i < word.Length; i++)
             {
                 if (!node.ContainsKey(word[i]))
                     return 0;
@@ -131,7 +131,7 @@ namespace DS_Lib
             for (int i = 0; i < word.Length; i++)
             {
                 if (!node.ContainsKey(word[i]))
-                    node.Put(word[i], new NodeII());               
+                    node.Put(word[i], new NodeII());
 
                 node = node.Get(word[i]);
                 node.IncreasePrefix();
@@ -140,6 +140,6 @@ namespace DS_Lib
             node.IncreaseEnd();
         }
 
-        
+
     }
 }

@@ -1,4 +1,4 @@
-﻿using DS_Lib;
+﻿using DS_Lib.DataStructures;
 using DSLib.DataStructures;
 using System;
 
@@ -9,8 +9,40 @@ namespace BasicDS
         static void Main(string[] args)
         {
             //SamplesRelatedToTrie();
-            SamplesRelatedToTrieII();
+            //SamplesRelatedToTrieII();
+            SamplesRelatedToTrieIII();
         }
+
+        private static void SamplesRelatedToTrieIII()
+        {
+            string[] arr = new string[] { "n", "nin", "ninj", "ninga", "ni", "ninija" };
+            //string[] arr = new string[] { "n", "nin"};
+
+            var trie = new TrieIII();
+
+            string longest = "";
+
+            foreach (var word in arr)
+            {
+                trie.InsertWord(word);
+            }
+
+            foreach (var word in arr)
+            {
+                if (trie.CheckIfCompletePrefixExists(word))
+                {
+                    if (word.Length > longest.Length)
+                        longest = word;
+                }
+            }
+
+            if (longest == "")
+                Console.WriteLine("None");
+            else
+                Console.WriteLine(longest);
+
+        }
+
 
         public static void SamplesRelatedToTrie()
         {
