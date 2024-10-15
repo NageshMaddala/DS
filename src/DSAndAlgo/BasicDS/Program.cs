@@ -10,7 +10,21 @@ namespace BasicDS
         {
             //SamplesRelatedToTrie();
             //SamplesRelatedToTrieII();
-            SamplesRelatedToTrieIII();
+            //SamplesRelatedToTrieIII();
+            SamplesRelatedToTrieIV();
+        }
+
+        private static void SamplesRelatedToTrieIV()
+        {
+            var str = "abab";
+            var trie = new TrieIV();
+            var distinctWordCount = trie.CountDistinctSubString(str);
+            Console.WriteLine($"Count of distinct words that can be formed used {str} including is {distinctWordCount}");
+
+            trie = new TrieIV();
+            str = "bob";
+            distinctWordCount = trie.CountDistinctSubString(str);
+            Console.WriteLine($"Count of distinct words that can be formed used {str} including is {distinctWordCount}");
         }
 
         private static void SamplesRelatedToTrieIII()

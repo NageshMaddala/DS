@@ -91,4 +91,44 @@ namespace DS_Lib.DataStructures
             node.SetEnd();
         }
     }
+
+
+    public interface ITrieIV
+    {
+        public int CountDistinctSubString(string word);
+    }
+
+    public class TrieIV : ITrieIV
+    {
+        private Node _root;
+
+        public TrieIV()
+        {
+            _root = new Node();
+        }
+
+
+        int counter = 0;
+
+        public int CountDistinctSubString(string word)
+        {
+            for (int i = 0; i < word.Length; i++)
+            {
+                // This is the catch here
+                // A new root is formed from every shifted character
+                Node node = _root;
+                for (int j = i; j < word.Length; j++)
+                {
+                    if (!node.ContainsKey(word[i]))
+                    {
+                        node.PutNode(word[i], new Node());
+                        counter++;
+                    }
+
+                    node = node.GetNode(word[i]);
+                }
+            }
+            return counter + 1;
+        }
+    }
 }
