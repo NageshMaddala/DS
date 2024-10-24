@@ -1,4 +1,5 @@
 ﻿using DS_Lib.DataStructures;
+using DS_Lib.DataStructures.DP;
 using DSLib.DataStructures;
 using System;
 
@@ -11,8 +12,30 @@ namespace BasicDS
             //SamplesRelatedToTrie();
             //SamplesRelatedToTrieII();
             //SamplesRelatedToTrieIII();
-            SamplesRelatedToTrieIV();
+            //SamplesRelatedToTrieIV();
+            DynamicProgrammingSamples();
         }
+
+        private static void DynamicProgrammingSamples()
+        {
+            // find nth fib number
+
+            int n = 5;
+
+            var dp = new int[n + 1];
+
+            for (int i = 0; i < dp.Length; i++)
+            {
+                dp[i] = -1;
+            }
+
+            var t = Fib.FindNthFibNUmber(n, dp);
+            Console.WriteLine($"Fib number at {n}th position is {t}");
+
+            t = Fib.FindFibNumberUsingTab(n);
+            Console.WriteLine($"Fib number at {n}th position is {t}");
+        }
+
 
         private static void SamplesRelatedToTrieIV()
         {
